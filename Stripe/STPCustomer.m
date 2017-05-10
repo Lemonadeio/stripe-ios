@@ -35,6 +35,10 @@
 
 #pragma mark STPAPIResponseDecodable
 
++ (NSString *)object {
+    return @"customer";
+}
+
 + (NSArray *)requiredFields {
     return @[@"id"];
 }

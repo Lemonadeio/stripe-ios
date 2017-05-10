@@ -20,6 +20,10 @@
 
 @implementation STPResourceKey
 
++ (NSString *)object {
+    return nil; // TODO: what will this be?
+}
+
 + (NSArray *)requiredFields {
     return @[@"contents", @"expires"];
 }
@@ -34,6 +38,21 @@
     key.expirationDate = [NSDate dateWithTimeIntervalSince1970:[dict[@"expires"] doubleValue]];
     key.allResponseFields = dict;
     return key;
+}
+
+- (BOOL)isEqual:(id)object {
+    if (self == object) {
+        return YES;
+    }
+    if (!object || ![object isKindOfClass:self.class]) {
+        return NO;
+    }
+    return [self isEqualToResourceKey:object];
+}
+
+- (BOOL)isEqualToResourceKey:(STPResourceKey *)other {
+    return [self.key isEqualToString:other.key]
+        && [self.expirationDate isEqual:other.expirationDate];
 }
 
 @end

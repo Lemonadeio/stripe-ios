@@ -501,7 +501,7 @@ static NSString *const stripeAPIVersion = @"2015-10-12";
     [STPAPIRequest<STPSourceProtocol> postWithAPIClient:self
                                                endpoint:endpoint
                                              parameters:@{@"source": sourceId}
-                                             serializer:[STPCard new] // TODO: card or source
+                                            serializers:@[[STPCard new], [STPSource new]]
                                              completion:^(STPCard *object, __unused NSHTTPURLResponse *response, NSError *error) {
                                                  completion(object, error);
                                              }];

@@ -10,6 +10,8 @@
 
 #import "STPAPIResponseDecodable.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  // TODO docs, more fields, etc.
  */
@@ -25,6 +27,12 @@
  */
 @property (nonatomic, readonly) NSDate *expirationDate;
 
-// TODO: disable initializer
+/**
+ *  You cannot directly instantiate an `STPResourceKey`. You should instead use
+ *  `decodedObjectFromAPIResponse:` to create a key from a JSON response.
+ */
+- (nonnull instancetype) init __attribute__((unavailable("You cannot directly instantiate an STPResourceKey. You should instead use `decodedObjectFromAPIResponse:` to create a key from a JSON response.")));
 
 @end
+
+NS_ASSUME_NONNULL_END

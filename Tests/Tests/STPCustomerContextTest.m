@@ -140,7 +140,7 @@
     id mockAPIClient = OCMClassMock([STPAPIClient class]);
     STPSource *expectedSource = [STPFixtures cardSource];
     XCTestExpectation *exp = [self expectationWithDescription:@"updateCustomer"];
-    OCMStub([mockAPIClient updateCustomerWithId:[OCMArg any] addingSource:[OCMArg any] completion:[OCMArg any]])
+    OCMStub([mockAPIClient addSource:[OCMArg any] toCustomerWithId:[OCMArg any] completion:[OCMArg any]])
     .andDo(^(NSInvocation *invocation) {
         NSString *customerID;
         NSString *sourceID;
